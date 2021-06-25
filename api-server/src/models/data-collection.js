@@ -32,6 +32,14 @@ class DataCollection {
     return this.model.destroy({ where: { id }});
   }
 
+  createAssociation(type, model, options) {
+    try {
+      this.model[type](model, options);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
 }
 
 module.exports = DataCollection;
